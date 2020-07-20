@@ -127,9 +127,35 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+function getInningScore(inning){
+  // create variables to store inning score for home and away
+  const awayScore = inning();
+  const homeScore = inning();
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+  // return object per inning
+  return {
+    awayScore,
+    homeScore,
+  }
 }
 
+// function passing in getInningScore func, inning func and num(total number of innings)
+function scoreboard(getInningScore, inning, num) {
+  // create variables to increment each inning score to get totals for away and home
+  let awayTotal = 0;
+  let homeTotal = 0;
+  //run through each inning to increment scores to = total
+  for(let i = 0; i <= num; i++){
+    const scores = getInningScore(inning);
+    //increment upon previous innings score to present updated score
+    awayTotal += scores.awayScore;
+    homeTotal += scores.homeScore;
+    //print total inning scores for away and home at each inning
+    console.log(`inning ${i + 1}: ${awayTotal} - ${homeTotal}`);
+    
+  }
+  //print final score
+  console.log(`Final Score: ${awayTotal} - ${homeTotal}`);
+}
 
+scoreboard(getInningScore, inning, 9);
