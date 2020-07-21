@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+A child function within a parent function.
+It allows us to access variables and other functions utilized within its parent function. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,14 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+function(){} is the child of personalDice(name). It is utilizing the name arguments provided in the personalDice(name) function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name argument will always be the same the newRoll could change.
+
 c. What is the lexical scope of `newRoll`? 
+newRoll can only be accessed by function()
+
 
 ### Task 2c - Exit Ticket
 
