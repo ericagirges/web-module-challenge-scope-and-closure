@@ -145,13 +145,25 @@ function scoreboard(getInningScore, inning, num) {
   let awayTotal = 0;
   let homeTotal = 0;
   //run through each inning to increment scores to = total
-  for(let i = 0; i <= num; i++){
+  for(let i = 0; i < num; i++){
     const scores = getInningScore(inning);
     //increment upon previous innings score to present updated score
     awayTotal += scores.awayScore;
     homeTotal += scores.homeScore;
+    // convert numbers to ordinal
+    let end;
+    let int = i + 1;
+    if(int === 1){
+      end = "st"
+    }else if(int === 2){
+      end = "nd";
+    }else if(int === 3){
+      end = "rd";
+    }else{
+      end = "th"
+    }
     //print total inning scores for away and home at each inning
-    console.log(`inning ${i + 1}: ${awayTotal} - ${homeTotal}`);
+    console.log(`${int}${end} inning: ${awayTotal} - ${homeTotal}`);
     
   }
   //print final score
